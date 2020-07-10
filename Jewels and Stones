@@ -1,0 +1,18 @@
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+        
+        int sum = 0;
+        char [] characterString = J.toCharArray();
+        char [] myString = S.toCharArray();
+        
+        for (int i = 0; i < characterString.length; i++) {
+            for (int j = 0; j < myString.length; j++) {
+                int dif = characterString[i] - myString[j];
+                if (dif == 0) {
+                    sum++;
+                }
+            }
+        }
+        return sum;
+    }
+}

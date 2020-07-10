@@ -1,0 +1,45 @@
+class Solution {
+    public String removeOuterParentheses(String S) {
+        StringBuilder s = new StringBuilder();
+        int end = 0;
+        for (char a : S.toCharArray()) {
+            if (a == '(' && end++ > 0) s.append(a);
+            if (a == ')' && end-- > 1) s.append(a);
+        }
+        return s.toString();
+    }
+}
+
+// class Solution {
+//     public String removeOuterParentheses(String S) {
+//         int end = 0;
+//         int startL = 0;
+//         int endL = 0;
+//         String str = "";
+//         if(S.length() > 2) {
+//         for(int i = 0; i < S.length(); i++) {
+//             if (S.charAt(i) == '(') {
+//                 if (end == 0) {
+//                     startL = i;
+//                 }else{
+//                     startL = startL;
+//                 }
+//                 end++;
+//             }else{
+//                 if (end == 1) {
+//                     endL = i;
+//                 }else{
+//                     endL = endL;
+//                 }
+//                 end--;
+//             }
+//             if (end == 0) {
+//               str = str + S.substring(startL + 1, endL);
+//             }else{
+//                 str = str;
+//             }
+//         }
+//         }
+//         return str;
+//     }
+// }

@@ -1,0 +1,28 @@
+class Solution {
+    public int countCharacters(String[] words, String chars) {
+        int result = 0;
+        HashMap<Character, Integer> map = new HashMap<Character,Integer>();
+        for (char i : chars.toCharArray()) {
+            map.put(i, map.getOrDefault(i,0) + 1);
+            
+        }
+        for(String i : words) {
+            result += PossibleLength(i,map);
+        }
+        return result;
+    }
+    int PossibleLength(String i, HashMap<Character,Integer> map) {
+        HashMap<Character, Integer> clone = new HashMap<>(map);
+        boolean fail = false;
+        for (int j = 0; j < i.length(); j++) {
+            if (clone.containsKey(i.charAt(j)) && clone.get(i.charAt(j)) > 0) {
+               clone.put(i.charAt(j), clone.get(i.charAt(j)) - 1);
+            }else{
+               fail = true;
+               break;
+            }
+         }
+            if(fail == false) return i.length();
+        return 0;
+    }
+}

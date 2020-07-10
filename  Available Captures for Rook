@@ -1,0 +1,50 @@
+class Solution {
+    public int numRookCaptures(char[][] board) {
+        int rookC = 0, rookR = 0;
+        for(int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] == 'R') {
+                    rookC = j;
+                    rookR = i;
+                }
+            }
+        }
+        char [] rookS = board[rookR];
+        int count = 0;
+        for (int i = rookC ; i < rookS.length; i++) {
+            if (rookS[i] == 'B') {
+                break;
+            }else if (rookS[i] == 'p') {
+                count++;
+                break;
+            }
+        }
+        for (int i = rookC ; i >= 0; i--) {
+            if (rookS[i] == 'B') {
+                break;
+            }else if (rookS[i] == 'p') {
+                count++;
+                break;
+            }
+        }
+        for(int i = rookR; i < board.length; i++) {
+            if (board[i][rookC] == 'B') {
+                break;
+            }
+            else if (board[i][rookC] == 'p') {
+                count++;
+                break;
+            }
+        }
+        for(int i = rookR; i >= 0; i--) {
+            if (board[i][rookC] == 'B') {
+                break;
+            }
+            else if (board[i][rookC] == 'p') {
+                count++;
+                break;
+            }
+        }
+        return count;
+    }
+}

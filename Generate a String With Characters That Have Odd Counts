@@ -1,0 +1,26 @@
+class Solution {
+    public String generateTheString(int n) {
+        String str = "";
+        if (n % 2 == 0) {
+            while(n > 1) {
+                str += 'a';
+                n--;
+            }
+            str += 'b';
+        }else {
+            while(n > 0) {
+                str += 'a';
+                n--;
+            }
+        }
+        return str;
+    }
+}
+
+// String str = "";
+//         int p = n;
+//         while(n > 1) {
+//             str += 'a';
+//             n--;
+//         }
+//         return str += p%2 == 0 ? 'b' : 'a';

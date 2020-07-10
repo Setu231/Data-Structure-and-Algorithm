@@ -1,0 +1,55 @@
+class Solution {
+    public String[] findRestaurant(String[] list1, String[] list2) {
+        int smallest = Integer.MAX_VALUE, k = 0;
+        List<String> res = new ArrayList<>();
+        HashMap<String, Integer> map = new HashMap<>(); 
+        
+        for (int i = 0; i < list2.length; i++) {
+            map.put(list2[i],i);
+        }
+        for(int i = 0; i < list1.length; i++) {
+            if (map.containsKey(list1[i])) {
+                if (smallest == (i+map.get(list1[i]))) {
+                    res.add(list1[i]);
+                    k++;
+                }else if (smallest > (i+map.get(list1[i]))) {
+                    smallest = i+map.get(list1[i]);
+                    if(k != 0) {
+                     res.remove(k);   
+                    }
+                    res.add(list1[i]);
+                }
+            }
+        }
+        String [] resl = new String[res.size()];
+        for(int i = 0; i < res.size(); i++) {
+            resl[i] = res.get(i);
+        }
+        return resl;
+    }
+}
+
+// int smallest = Integer.MAX_VALUE, k = 0;
+//         List<String> res = new ArrayList<>();
+//         for(int i = 0; i < list1.length; i++) {
+//             for(int j = 0; j < list2.length; j++) {
+//                 if (list1[i].equals(list2[j])) {
+//                     if (smallest == (i+j)) {
+//                         res.add(list1[i]);
+//                         k++;
+//                     }else if (smallest > (i+j)) {
+//                         System.out.println(i + "" + j);
+//                         smallest = i+j;
+//                         if(k != 0) {
+//                          res.remove(k);   
+//                         }
+//                         res.add(list1[i]);
+//                     }
+//                 }
+//             }
+//         }
+//         String [] resl = new String[res.size()];
+//         for(int i = 0; i < res.size(); i++) {
+//             resl[i] = res.get(i);
+//         }
+//         return resl;

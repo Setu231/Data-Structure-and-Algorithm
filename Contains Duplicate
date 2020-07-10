@@ -1,0 +1,40 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i : nums) {
+            set.add(i);
+        }
+    return set.size() == nums.length ? false : true;
+    }
+}
+ // Set<Integer> set = new HashSet<Integer>();
+ //        for(int i : nums) {
+ //            if (!set.add(i)) return true;
+ //        }
+ //    return false;
+
+
+// if (nums.length == 1 || nums.length == 0) return false;
+//         Map <Integer,Integer> map = new HashMap<Integer,Integer>();
+//         for (int i = 0; i < nums.length; i++) {
+//             if (map.containsKey(nums[i])) {
+//                 return true;
+//             }else{
+//                 map.put(nums[i],i);
+//             }
+//         }
+//         return false;
+
+
+
+ // if (nums.length == 1 || nums.length == 0) return false;
+ //        List <Integer> list = new ArrayList<Integer>();
+ //        for (int i = 0; i < nums.length; i++) {
+ //            if (list.contains(nums[i])) {
+ //                return true;
+ //            }else{
+ //                list.add(nums[i]);
+ //            }
+ //        }
+ //        return false;
+// does not run last long case

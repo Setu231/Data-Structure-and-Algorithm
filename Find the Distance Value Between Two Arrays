@@ -1,0 +1,21 @@
+class Solution {
+    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+        int res = 0;
+        for(int i : arr1) {
+                if (check(d, i, arr2)) {
+                    res++;
+            }
+        }
+        return res;
+    }
+    boolean check (int d, int num, int[] arr2) {
+        for (int i : arr2) {
+            if (Math.abs(i - num) <= d) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+//Tree is the better solution.

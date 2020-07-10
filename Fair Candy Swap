@@ -1,0 +1,9 @@
+class Solution {
+    public int[] fairCandySwap(int[] A, int[] B) {
+        int Aval = IntStream.of(A).sum(), Bval = IntStream.of(B).sum();
+        int [] res = new int[2];
+        int diff = (Aval > Bval) ? (Aval - Bval)/2 : (Bval - Aval)/2;
+        HashSet <Integer> h = 
+        return res;
+    }
+}

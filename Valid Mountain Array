@@ -1,0 +1,21 @@
+class Solution {
+    public boolean validMountainArray(int[] A) {
+        if (A.length == 0 || A.length == 1 ) return false;
+        int c = 0,p = 0, k = A[0];
+        for(int i = 0; i < A.length; i++) {
+            if (c < A[i]) {
+                c = A[i];
+                p = i;
+            }
+        }
+        if (p == 0 || p == A.length - 1) {return false;}
+        for (int i = 1; i < A.length; i++) {
+            if ((k < A[i] && i <= p) || (k > A[i] && i > p)) {
+                k = A[i];
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+}

@@ -1,0 +1,17 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+       int maxFirst = 0, maxSecond = Integer.MIN_VALUE;
+        for(int i = 0; i < nums.length; i++) {
+            maxFirst = Math.max(nums[i]+maxFirst, nums[i]);
+            maxSecond = Math.max(maxSecond, maxFirst);
+        }
+        return maxSecond;
+    }
+}
+
+// int maxFirst = 0, maxSecond = Integer.MIN_VALUE;
+//         for(int i = 0; i < nums.length; i++) {
+//             maxFirst = maxFirst < 0 ? nums[i] : maxFirst + nums[i];
+//             maxSecond = Math.max(maxSecond, maxFirst);
+//         }
+//         return maxSecond;

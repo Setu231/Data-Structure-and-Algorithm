@@ -1,0 +1,17 @@
+class Solution {
+    public boolean checkStraightLine(int[][] coordinates) {
+        if(coordinates.length == 2) return true;
+           for (int i = 2; i < coordinates.length; i++) {
+                int valX = (coordinates[i-1][0]) - (coordinates[i-2][0]);
+                int valY = (coordinates[i-1][1]) - (coordinates[i-2][1]);
+                int valXs = (coordinates[i][0]) - (coordinates[i-1][0]);
+                int valYs = (coordinates[i][1]) - (coordinates[i-1][1]);
+               if ((valY == 0 && valYs == 0 || valX == 0 && valXs == 0)) {
+                   continue;
+               }else if (valYs/valXs != valY/valX) {
+                   return false;
+               }
+           }
+        return true;
+    }
+}

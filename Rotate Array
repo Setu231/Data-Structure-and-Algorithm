@@ -1,0 +1,29 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        if (k != 0) {
+            int [] res = new int[nums.length];
+            for (int i = 0; i < nums.length; i++) {
+                res[(i+k) % nums.length] = nums[i];
+            }
+            for (int i = 0; i < nums.length; i++) {
+                nums[i] = res[i];
+            }
+        }
+    }
+}
+
+// if (k != 0) {
+//             int [] res = new int[nums.length];
+//             int p = 0;
+//             int t = k > nums.length ? nums.length - (k % nums.length) : nums.length - k;
+//             for (int i = 0; i < nums.length; i++,t++) {
+//                 res[t] = nums[i];
+//             }
+//             for (int i = 0; i < t; i++,p++) {
+//                 res[p] = nums[i];
+//             }
+//             for (int i = 0; i < nums.length; i++) {
+//                 nums[i] = res[i];
+//             }
+//         }
+//     }

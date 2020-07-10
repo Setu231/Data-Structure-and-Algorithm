@@ -1,0 +1,10 @@
+class Solution {
+    public int minStartValue(int[] nums) {
+        int count = 0, poscount = 0;
+        for (int i = 0; i < nums.length; i++) {
+            count += nums[i];
+            poscount = Math.min(poscount, count);
+        }
+        return 1 - poscount;
+    }
+}

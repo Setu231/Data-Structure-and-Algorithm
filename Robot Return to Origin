@@ -1,0 +1,19 @@
+class Solution {
+    public boolean judgeCircle(String moves) {
+        int side = 0, st = 0;
+        for(char i : moves.toCharArray()) {
+            if (i == 'U') {
+                st++;
+            }else if (i == 'D') {
+                st--;
+            }else if (i == 'L') {
+                side++;
+            }else if (i == 'R') {
+                side--;
+            }
+        }
+        return side == 0 && st == 0;
+    }
+}
+
+

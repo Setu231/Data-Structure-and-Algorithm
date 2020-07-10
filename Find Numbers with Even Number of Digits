@@ -1,0 +1,23 @@
+class Solution {
+    public int findNumbers(int[] nums) { 
+        // int answer = 0;
+        // for(int i: nums){
+        //     if((i>=10 && i<=99) || (i>=1000 && i<= 9999) || i==100000)
+        //         answer++;
+        // }
+        // return answer;
+        // looked in the description and tried to code my way but this is just for this constraints.
+        int answer = 0; String str = "";
+        for (int i : nums) {
+            int n = i, count = 1;
+            while(n/10 != 0) {
+                n = n/10;
+                count++;
+            }
+            if (count%2 == 0) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+}
