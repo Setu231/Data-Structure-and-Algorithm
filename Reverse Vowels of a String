@@ -1,0 +1,69 @@
+class Solution {
+        //public static final List<Character> list = new ArrayList<Character>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+    public String reverseVowels(String s) {
+        int i = 0, j = s.length() - 1;
+        char [] str = s.toCharArray();
+        List<Character> list = makeCheck();
+        while(i < j) {
+            if (!list.contains(str[i])) {
+                i++;
+            }else if (!list.contains(str[j])) {
+                j--;
+            }else {
+                char d = str[j];
+                satr[j] = str[i];
+                str[i] = d;
+                i++;j--;
+            }
+        }
+        return String.valueOf(str);
+    }
+    public List<Character> makeCheck() {
+        List<Character> list = new ArrayList<Character>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+        // list.add('a');list.add('e');list.add('i');list.add('o');list.add('u');list.add('A');list.add('E');list.add('I');list.add('O');list.add('U');
+        return list;
+    }
+}
+
+// List 11ms
+// private final static List<Character> list = new ArrayList<>(
+//     Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+//     public String reverseVowels(String s) {
+//         int i = 0, j = s.length() - 1;
+//         char [] str = s.toCharArray();
+//         while(i < j) {
+//             if (list.contains(str[i]) && list.contains(str[j])) {
+//                 char d = str[j];
+//                 str[j] = str[i];
+//                 str[i] = d;
+//                 i++; j--;
+//             }else if (list.contains(str[i])) {
+//                 j--;
+//             }else if (list.contains(str[j])) {
+//                 i++;
+//             }else {
+//                 i++;j--;
+//             }
+//         }
+//         return String.valueOf(str);
+//     }
+
+
+
+// Direct 4ms
+        // int i = 0, j = s.length() - 1;
+        // char [] str = s.toCharArray();
+        //     while ( i < j) {
+        //     if ((str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' || str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U') && (str[j] == 'a' || str[j] == 'e' || str[j] == 'i' || str[j] == 'o' || str[j] == 'u' || str[j] == 'A' || str[j] == 'E' || str[j] == 'I' || str[j] == 'O' || str[j] == 'U')) {
+        //         char d = str[j];
+        //         str[j] = str[i];
+        //         str[i] = d;
+        //         i++; j--;
+        //     }else if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' || str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U'){
+        //         j--;
+        //     }else if ((str[j] == 'a' || str[j] == 'e' || str[j] == 'i' || str[j] == 'o' || str[j] == 'u' || str[j] == 'A' || str[j] == 'E' || str[j] == 'I' || str[j] == 'O' || str[j] == 'U')) {
+        //         i++;
+        //     }else {j--; i++;}
+        // }
+        // return String.valueOf(str);
+

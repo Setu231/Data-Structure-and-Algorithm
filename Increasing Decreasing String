@@ -1,0 +1,47 @@
+class Solution {
+    public String sortString(String s) {
+        int[] count = new int[26];
+        for (char c : s.toCharArray()) {
+            count[c - 'a']++;
+        }
+        //String str = "";
+        StringBuilder sb=new StringBuilder();
+        while(sb.length() != s.length()) {
+            for (int i = 0; i < 26; i++) {
+                if (count[i] > 0) {
+                    sb.append((char)(i + 'a'));
+                    //str += (char)(i + 'a');
+                    count[i]--;
+                }
+            }
+            for (int i = 25; i > -1; i--) {
+                if (count[i] > 0) {
+                    sb.append((char)(i + 'a'));
+                    //str += (char)(i + 'a');
+                    count[i]--;
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
+// int[] count = new int[26];
+//         for (char c : s.toCharArray()) {
+//             count[c - 'a']++;
+//         }
+//         String str = "";
+//         int i = 0, c = 0, e = 0;
+//         boolean as = true;
+//         while(str.length() != s.length()) {
+//             if (count[i] > 0) {
+//                 str += (char)(i + 'a');
+//                 count[i]--;
+//             }
+//             if (as) {if (c != 1)i++;}
+//             else {if (e != 1)i--;}
+//             if (i == 25 && e != 0) {e = 0; as = false;}
+//             else if (i == 25 && e == 0) {e++; as = false;}
+//             else if (i == 0 && c != 0) {c = 0; as = true;}
+//             else if (i == 0 && c == 0) { c++; as = true;}
+//         }
+//         return str;

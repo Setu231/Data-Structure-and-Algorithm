@@ -1,0 +1,15 @@
+class Solution {
+    public int maxNumberOfBalloons(String text) {
+        Map<Character,Integer> map = new HashMap<>();
+        for(int i = 0 ; i < text.length(); i++) {
+                map.put(text.charAt(i), map.getOrDefault(text.charAt(i),0) + 1);
+        }
+         if (!map.containsKey('b') || !map.containsKey('a') ||!map.containsKey('l') ||!map.containsKey('o')||!map.containsKey('n')) return 0;
+        int min = map.get('b');
+        min = Math.min(min, map.get('a'));
+        min = Math.min(min, map.get('l')/2);
+        min = Math.min(min, map.get('o')/2);
+        min = Math.min(min, map.get('n'));
+        return min;
+    }
+}

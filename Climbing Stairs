@@ -1,0 +1,17 @@
+class Solution {
+    public int climbStairs(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+        if (n == 3) return 3;
+        return fib(n);
+    }
+    public int fib(int k) {
+        int p = 5, s = 0, n = 3;
+        for (int i = 4; i < k; i++) {
+            s = p;
+            p += n;
+            n = s;
+        }
+        return p;
+    }
+}
