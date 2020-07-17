@@ -1,0 +1,60 @@
+class Solution {
+    public int[] kWeakestRows(int[][] mat, int k) {
+        int [] res = new int[mat.length];
+        int p = 0;
+        for(int i = 0; i < mat.length; i++) {
+             for(int j = mat[i].length - 1; j >= 0; j--) {
+                if (mat[i][j] == 1) {
+                    res[i] = j+1;
+                    break;
+                }
+            }
+        }
+        int [] resu = res.clone();
+        Arrays.sort(resu);
+        int []result = new int[k];
+        for (int i = 0; i < resu.length;i++) {
+            for (int j = 0; j < res.length; j++) {
+                if (resu[i] == res[j] && k-- > 0) {
+                    result[k] = j;
+                    res[j] = 105;
+                }
+            }
+        }
+        for(int i = 0; i < result.length / 2; i++){
+            int temp = result[i];
+            result[i] = result[result.length - i - 1];
+            result[result.length - i - 1] = temp;
+        }
+        return result;
+    }
+}
+
+// class Solution {
+//     public int[] kWeakestRows(int[][] mat, int k) {
+//         int [] res = new int[mat.length];
+//         int p = 0;
+//         for(int i = 0; i < mat.length; i++) {
+//              for(int j = mat[i].length - 1; j >= 0; j--) {
+//                 if (mat[i][j] == 1) {
+//                     res[i] = j+1;
+//                     break;
+//                 }
+//             }
+//         }
+//         int [] resu = res.clone();
+//         Arrays.sort(resu);
+//         int []result = new int[k];
+//         int f = 0;
+//         for (int i = 0; i < resu.length;i++) {
+//             for (int j = 0; j < res.length; j++) {
+//                 if (resu[i] == res[j] && f != k) {
+//                     result[f] = j;
+//                     res[j] = 105;
+//                     f++;
+//                 }
+//             }
+//         }
+//         return result;
+//     }
+// }
