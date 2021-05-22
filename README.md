@@ -1,2 +1,2 @@
 # LeetCode
-This is just a practice I am doing on leetcode and this repository contains codes to those problems.
+This repository consists of Algorithms and Data Structures coded in JAVA. Elaborated descriptions of the problems are given on leetcode with the same name as the file name.
